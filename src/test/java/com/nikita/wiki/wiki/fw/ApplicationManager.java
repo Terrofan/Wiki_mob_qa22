@@ -14,6 +14,7 @@ public class ApplicationManager {
     SessionHelper sessionHelper;
 
 
+
     public void init() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
@@ -45,5 +46,9 @@ public class ApplicationManager {
 
     public ArticleHelper getArticleHelper() {
         return articleHelper;
+    }
+
+    public AppiumDriver getDriver() {
+        return driver;
     }
 }

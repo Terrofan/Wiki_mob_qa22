@@ -11,7 +11,7 @@ public class LoginTest extends TestBase {
         appMan.getSessionHelper().clickOnLogInButton();
         appMan.getSessionHelper().fillLoginForm("Terrofan", "5457den5457");
         appMan.getSessionHelper().confirmLogIn();
-        appMan.getSessionHelper().skipTurnOnReadingSync();
+        appMan.getSessionHelper().skipSyncReadingListsWindow();
         Assert.assertTrue(appMan.getSessionHelper().isAvatarIconPresent());
     }
 }

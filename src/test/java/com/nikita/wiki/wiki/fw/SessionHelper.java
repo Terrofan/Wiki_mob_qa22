@@ -38,7 +38,7 @@ public class SessionHelper extends Helperbase {
         }
     }
 
-    public void skipTurnOnReadingSync() {
+    public void skipSyncReadingListsWindow() {
         tap(By.id("android:id/button2"));
     }
 }
