@@ -8,9 +8,10 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
-    public AppiumDriver driver;
+    private AppiumDriver driver;
     ArticleHelper articleHelper;
     Helperbase helperbase;
+    SessionHelper sessionHelper;
 
 
     public void init() throws MalformedURLException {
@@ -23,9 +24,10 @@ public class ApplicationManager {
         capabilities.setCapability("appActivity", ".main.MainActivity");
         capabilities.setCapability("app", "C:/Users/sh_ni/Documents/GitHub/Wiki_mob_qa22/src/test/resources/apk/org.wikipedia.apk");
         driver = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         helperbase = new Helperbase(driver);
         articleHelper = new ArticleHelper(driver);
+        sessionHelper = new SessionHelper(driver);
     }
 
     public void stop() throws InterruptedException {
@@ -33,6 +35,9 @@ public class ApplicationManager {
         driver.quit();
     }
 
+    public SessionHelper getSessionHelper() {
+        return sessionHelper;
+    }
 
     public Helperbase getHelperbase() {
         return helperbase;
